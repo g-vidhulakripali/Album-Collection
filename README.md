@@ -1,3 +1,7 @@
+# Album Collections App
+
+Album Collections is a simple React app that allows users to manage and interact with a list of albums. Users can view, search, update, and delete albums in their collection.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Features
+
+- View a list of albums.
+- Search albums by title.
+- Update album titles.
+- Delete albums from the collection.
+
+## Built With
+
+- [React](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com/)
+- [FontAwesome](https://fontawesome.com/)
+- [axios](https://github.com/axios/axios)
+
+## API Used
+
+The app fetches album data from the [JSONPlaceholder](https://jsonplaceholder.typicode.com/albums) API for demonstration purposes.

@@ -11,17 +11,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 
+// API URL for fetching albums
 const API_URL = "https://jsonplaceholder.typicode.com/albums";
 
+// Main App component
 const App = () => {
+  // State for storing albums and search term
   const [albums, setAlbums] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Fetch albums on component mount
   useEffect(() => {
-    // Fetch albums on component mount
     fetchAlbums();
   }, []);
 
+  // Function to fetch albums from the API
   const fetchAlbums = async () => {
     try {
       const response = await axios.get(API_URL);
@@ -31,6 +35,7 @@ const App = () => {
     }
   };
 
+  // Function to handle album deletion
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${API_URL}/${id}`);
@@ -41,6 +46,7 @@ const App = () => {
     }
   };
 
+  // Function to handle album update
   const handleUpdate = async (id, title) => {
     try {
       await axios.put(`${API_URL}/${id}`, { title });
@@ -55,16 +61,20 @@ const App = () => {
     }
   };
 
+  // Function to handle search term change
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
+  // Filter albums based on search term
   const filteredAlbums = albums.filter((album) =>
     album.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // JSX structure of the component
   return (
     <Container>
+      {/* Header with title and music icon */}
       <Row className="justify-content-md-center">
         <Col md="auto">
           <h1
@@ -79,6 +89,8 @@ const App = () => {
           </h1>
         </Col>
       </Row>
+
+      {/* Search input */}
       <Row className="justify-content-md-center">
         <Col md="auto">
           <Form.Control
@@ -90,6 +102,8 @@ const App = () => {
           />
         </Col>
       </Row>
+
+      {/* AlbumList component displaying filtered albums */}
       <Row>
         <Col>
           <AlbumList
@@ -100,21 +114,6 @@ const App = () => {
         </Col>
       </Row>
     </Container>
-
-    // <div>
-    //   <h1>Album List</h1>
-    //   <input
-    //     type="text"
-    //     placeholder="Search albums"
-    //     value={searchTerm}
-    //     onChange={handleSearch}
-    //   />
-    //   <AlbumList
-    //     albums={filteredAlbums}
-    //     onDelete={handleDelete}
-    //     onUpdate={handleUpdate}
-    //   />
-    // </div>
   );
 };
 

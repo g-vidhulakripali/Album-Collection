@@ -1,4 +1,7 @@
  body{
+    /* The background image is set to a local image file called OIG.jpg. 
+      The image will not repeat and will be fixed in position, ensuring that the background image remains static even when scrolling. 
+      The background-size property is set to 'cover' which means the background image will be resized to cover the entire area, while maintaining its aspect ratio. */
     background-image: url('./image/OIG.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;  

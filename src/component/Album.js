@@ -10,9 +10,11 @@ import {
 import ModalComponent from "./Modal";
 import { Col } from "react-bootstrap";
 
+// Functional component representing an Album card
 const Album = ({ album, onDelete, onUpdate }) => {
   return (
     <Col md={4} className="mb-4">
+      {/* Card component with styling */}
       <Card
         style={{
           width: "18rem",
@@ -22,10 +24,18 @@ const Album = ({ album, onDelete, onUpdate }) => {
           boxShadow: "0px 0px 15px 5px #0ff",
         }}
       >
+        {/* Album cover image */}
         <Card.Img variant="top" src={album.cover} />
+
+        {/* Card body containing title, artist, and controls */}
         <Card.Body>
+          {/* Album title */}
           <Card.Title>{album.title}</Card.Title>
+
+          {/* Artist name */}
           <Card.Text>by Marc</Card.Text>
+
+          {/* Playback controls */}
           <div
             style={{
               display: "flex",
@@ -44,7 +54,11 @@ const Album = ({ album, onDelete, onUpdate }) => {
             <FontAwesomeIcon icon={faPlay} style={{ cursor: "pointer" }} />
             <FontAwesomeIcon icon={faForward} style={{ cursor: "pointer" }} />
           </div>
+
+          {/* Modal for editing album details */}
           <ModalComponent album={album} onUpdate={onUpdate} />
+
+          {/* Button to delete the album */}
           <Button
             variant="danger"
             onClick={() => onDelete(album.id)}
@@ -55,64 +69,6 @@ const Album = ({ album, onDelete, onUpdate }) => {
         </Card.Body>
       </Card>
     </Col>
-    // <li>
-    //   {/* <Card border="info" style={{ width: "18rem" }}>
-    //     <Card.Header>Marc</Card.Header>
-    //     <Card.Body>
-    //       <Card.Title>{album.title}</Card.Title>
-    //       <Card.Text>
-    //         Some quick example text to build on the card title and make up the
-    //         bulk of the card's content.
-    //         <ModalComponent album={album} onUpdate={onUpdate} />
-    //         <Button variant="danger" onClick={() => onDelete(album.id)}>
-    //           <FontAwesomeIcon icon={faTrash} style={{ cursor: "pointer" }} />
-    //         </Button>
-    //         {/* <button onClick={() => onDelete(album.id)}>Delete</button> */}
-    //   {/* <button
-    //           onClick={() => {
-    //             const newTitle = prompt("Enter new title:", album.title);
-    //             if (newTitle !== null) {
-    //               onUpdate(album.id, newTitle);
-    //             }
-    //           }}
-    //         >
-    //           Update
-    //         </button>
-    //       </Card.Text>
-    //     </Card.Body>
-    //   </Card>
-    //   */}
-    //   <Card
-    //     style={{ width: "18rem", backgroundColor: "black", color: "white" }}
-    //   >
-    //     <Card.Img variant="top" src={album.cover} />
-    //     <Card.Body>
-    //       <Card.Title>{album.title}</Card.Title>
-    //       <Card.Text>by Marc</Card.Text>
-    //       <div
-    //         style={{
-    //           display: "flex",
-    //           justifyContent: "space-around",
-    //           alignItems: "center",
-    //           width: "200px",
-    //           height: "50px",
-    //           backgroundColor: "#f8f9fa",
-    //           borderRadius: "25px",
-    //           padding: "10px",
-    //           color: "black",
-    //         }}
-    //       >
-    //         <FontAwesomeIcon icon={faBackward} style={{ cursor: "pointer" }} />
-    //         <FontAwesomeIcon icon={faPlay} style={{ cursor: "pointer" }} />
-    //         <FontAwesomeIcon icon={faForward} style={{ cursor: "pointer" }} />
-    //       </div>
-    //       <ModalComponent album={album} onUpdate={onUpdate} />
-    //       <Button variant="danger" onClick={() => onDelete(album.id)}>
-    //         <FontAwesomeIcon icon={faTrash} style={{ cursor: "pointer" }} />
-    //       </Button>
-    //     </Card.Body>
-    //   </Card>
-    // </li>
   );
 };
 
